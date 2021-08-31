@@ -16,10 +16,15 @@ io.on("connection", (socket) => {
 
     socket.emit("receive", lastColor);
 
+    /*
+    socket.on ile kanal üretiyoruz. kanalın adı newColor. coloru alıp ekrana yazdıracaz. Frontendde newColor
+    kanalına bağlanıyorlar.
+    */
     socket.on("newColor", (color) => {
         console.log(color);
 
         lastColor = color;
+        //not: aşağısı socket.broadcast.emit olsaydı rengi seçen haricindekilere yeni renk giderdi. anlamı bu.
         io.emit("receive", color);
     });
 
