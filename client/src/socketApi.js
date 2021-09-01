@@ -5,6 +5,7 @@ let socket;
 // bağlantı kurmak istediğimiz componentte init fonk kullanacağız.
 export const init = () => {
     console.log("Sunucuya bağlanılıyor...");
+    //backend nerede ise oranın portu verilir.
     socket = io('http://localhost:3001', {
         transports: ["websocket"],
     })
